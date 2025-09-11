@@ -1,0 +1,229 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    max-width: 800px;
+    width: 100%;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+header {
+    margin-bottom: 25px;
+}
+
+h1 {
+    color: #2c3e50;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+header p {
+    color: #7f8c8d;
+    font-size: 1.1em;
+}
+
+.question {
+    margin: 20px 0;
+    text-align: left;
+    background: #ecf0f1;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.question p {
+    color: #34495e;
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+.question label {
+    display: block;
+    margin: 8px 0;
+    color: #2c3e50;
+    cursor: pointer;
+}
+
+.question input[type="radio"] {
+    margin-right: 10px;
+    accent-color: #3498db;
+}
+
+.question input[type="radio"]:focus + span {
+    outline: 2px solid #3498db;
+    border-radius: 3px;
+}
+
+button {
+    padding: 12px 35px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 20px;
+}
+
+button:hover {
+    background: #2980b9;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+.result-image {
+    max-width: 150px;
+    margin-top: 15px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.graph-container {
+    margin-top: 30px;
+}
+
+.vector-bar {
+    display: flex;
+    height: 30px;
+    margin: 10px 0;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+.vector-bar::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    height: 100%;
+    width: 1px;
+    background: rgba(0,0,0,0.1);
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+.vector-segment {
+    transition: flex-grow 0.5s ease;
+    height: 100%;
+    min-width: 5px;
+}
+
+/* Colors - Standardized to match JS classes */
+.vector-segment.conservative { background: #9b59b6; }
+.vector-segment.liberal { background: #8e44ad; }
+.vector-segment.individualism { background: #3498db; }
+.vector-segment.communitarianism { background: #2980b9; }
+.vector-segment.emotionality { background: #e67e22; }
+.vector-segment.intellectualism { background: #d35400; }
+.vector-segment.ritualism { background: #1abc9c; }
+.vector-segment.charismatic { background: #16a085; }
+
+.vector-label {
+    font-size: 0.9em;
+    color: #7f8c8d;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    margin-bottom: 8px;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.back-button:hover {
+    background: #2980b9;
+}
+
+.progress-container {
+    width: 100%;
+    height: 4px;
+    background: #ecf0f1;
+    border-radius: 2px;
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: #3498db;
+    transition: width 0.3s ease;
+    border-radius: 2px;
+}
+
+.other-personalities {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.personality-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 15px;
+}
+
+.personality-item {
+    background: #ecf0f1;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.small-icon {
+    max-width: 50px;
+    height: auto;
+    border-radius: 5px;
+    width: 100%;
+    object-fit: contain;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.personality-item p {
+    margin-top: 5px;
+    font-size: 0.9em;
+    color: #34495e;
+}
+
+@media (max-width: 600px) {
+    .container { padding: 15px; }
+    h1 { font-size: 2em; }
+    .vector-bar { height: 25px; }
+}
